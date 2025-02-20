@@ -1,0 +1,81 @@
+Header for importing (case sensitive)
+Additional instructions
+first_name
+If journalists have middle names, they should be moved to the first name column. If missing a first_name, research and add their name. If you cannot find a first name, leave this field blank.
+last_name
+If not a human (outlet contact or general news contact etc), leave the first_name field blank and add the media outlet name under this column. 
+is_generic_contact
+If the contact is a general news contact with no name, this column should say TRUE.
+
+If the contact is a person/journalist with a name, this column should say FALSE.
+email
+Remove all erroneous symbols or words from email addresses so that only the email exists. Ex: jane@nytimes.com/ or <jane@nytimes.com> would not import. 
+
+If a person does not have an email address, delete any text (e.g. “No email listed” or “N/A”) so the row is left blank. 
+
+If a person has more than one email listed, split it into a new row with all the other information being the same. This is typically used for personal emails.
+media_outlets
+If there is a column of media outlets in the document, update the header according to the formatting and move to the title. You do not have to edit any of the rows here. 
+title
+If there is a column of titles in the document, add the header and proceed. Titles do not require additional editing.
+twitter
+Must be the twitter @handle or the handle alone, not the link. 
+Ex: @superman300 or superman300 not http://www.twitter.com/superman300 or superman300?lang=en
+beat
+If there are multiple beats, they should be separated using a semicolon (;) View available beats here. 
+location
+If there are no addresses- the City, Country, State should be all in one column. Use the =CONCATENATE formula to combine them. Here is a youtube video on how to use the concatenate formula to combine multiple fields easily. 
+If there are addresses- City, County, State, and address all need to be in separate columns. More on address formatting below. 
+phonenumber
+Remove all erroneous characters or words (e.g. :, @, work, mobile) so only the phone number remains. Plus (+), dashes (-), periods (.) and Extensions (ext) are ok. 
+
+If a person has more than one phone number  listed, split it into a new row with all the other information being the same. This is typically used for personal numbers.
+If there is more than one phone number, add a column phonenumber_type and add either “work” or “personal” as necessary. 
+contact_form
+This section allows us to import URLs to the contact form field under social media on a person’s profile page. They are often lumped in with emails so this allows you to split them out. 
+relationship_owner
+This header allows you to import relationship owners to matching journalists. The only valid input is customer user IDs. You will likely have to search the user admin to match IDs to names or initials. 
+
+Note that multiple relationship owners can exist on single journalist profiles. These will import either across multiple rows in one import or across multiple imports.
+media_list_note
+This header allows you to import media list notes that will be unique to the specific list. More information here. Because they’re unique to the list , they shouldn’t require a user or organization ID. 
+activity_note
+This section should only be added if the customer has specifically requested notes to be imported as activities. Check in with your editor before formatting these to avoid unnecessary work. If there is more than one note section use the, =CONCATENATE formula to combine them all in one column. Must have activity_user_id for each row. Explained below
+activity_user_id
+Only necessary if notes are specifically requested 
+Create a new column with activity_user_id as header
+Sort by notes
+Command + a > Data > Sort Range > Data has header row > Sort by: notes
+Add the User ID of customer who requested the media list import next to all rows with notes 
+Go to the https://muckrack.com/mradmin/auth/user/ and search for the email address of the user who requested the import
+Once you find their profile, click into it and copy the User ID from the URL https://muckrack.com/mradmin/auth/user/XXXXX/change/
+The activity_user_id is the user who will show up as the creator of the note on the front-end 
+activity_date_created
+Formatted YYYY-MM-DD. Only required if they want the date of the note different than the date of the import. This is rare. 
+
+
+address
+The first line of the mailing address
+address2
+The second line of the mailing address
+city
+The city from the mailing address
+state
+The state/province from the mailing address. The field is free text so it can be abbreviated (two letters) or spelled out. Ex:  NY or New York
+zip_code
+The zip/postal code from the mailing address
+country
+The country from the mailing address. Can be abbreviated (two letters) or spelled out. Ex: US or United States 
+contact_preferences_notes
+Use this heading if the customer wants their notes imported as contact preferences as opposed to activities. Check in with your editor before formatting these to avoid unnecessary work.
+organization
+Create a new column with organization as header. Only necessary if specifically requested 
+Sort by notes
+Command + a > Data > Sort Range > Data has header row > Sort by: notes
+Add the Organization ID of customer who requested the media list import next to all rows with notes 
+Go to the Organization admin and search for the user’s company
+Once you find their organization, click into it and copy the ID from the URL https://muckrack.com/mradmin/account/organization/XXXX/
+This column is required when importing mailing addresses or contact preferences
+newsdesk_contact
+Needs to either match on the Slug OR the title (exact match). Any of these pieces of information can be placed in a standalone. It also matches on email but due to duplicates - emails alone may cause errors. More information here: Importing newsdesk lists
+
