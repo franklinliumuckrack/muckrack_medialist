@@ -14,6 +14,7 @@ def get_data_mapping(df, client):
       
       You are tasked with mapping the header of the data to the following schema:
       
+      'name': __,
       'first_name': __,
       'last_name': __,
       'email': __,
@@ -52,7 +53,8 @@ def get_data_mapping(df, client):
       
       
       If you are not sure about a field, put None.
-      If names are only in one field, use name and do not include first_name and last_name.
+      If names are only in one field, use name and put None in first_name and last_name. 
+      Some examples of the name field could include 'journalist', 'reporter', 'podcaster', 'host', 'writer', 'author'
       
       The sample data is there to help you understand the data.
       Output the mapping of the header to the schema as a JSON object without any additional text
